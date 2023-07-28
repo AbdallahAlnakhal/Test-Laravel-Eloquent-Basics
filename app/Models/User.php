@@ -17,6 +17,11 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+    public function scopeActive(Builder $query)
+    {
+        return $query->whereNotNull('email_verified_at');
+    }
+
     protected $fillable = [
         'name',
         'email',
